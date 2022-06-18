@@ -1,0 +1,12 @@
+!B3LYP/G def2-SVP TightSCF NoRI pal8
+
+%TDDFT
+ nroots 10
+ TDA false
+ triplets true
+end
+
+*xyzfile 0 1 opt.xyz
+
+
+

@@ -1,0 +1,10 @@
+!RHF def2-SVP TightSCF pal8
+
+%cis
+ nroots 10
+end
+
+*xyzfile 0 1 opt.xyz
+
+
+

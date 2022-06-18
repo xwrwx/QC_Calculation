@@ -1,0 +1,31 @@
+$compass
+title
+ benzene_dimer TDDFT
+basis
+ def2-SVP   #基组
+geometry
+ file=opt.xyz  #分子坐标，需为当前工作目录下的xyz文件 
+end geometry
+$end
+
+$xuanyuan  #计算单双电子积分
+$end
+
+$scf
+RKS      #使用Kohn-Sham自洽场
+dft
+ GB3LYP  #指定泛函
+charge   #指定电荷数
+ 0
+spin     #指定自旋多重度
+ 1
+$end
+
+$tddft
+itda    #是否使用TDA,0为不使用TDA的TD-DFT，1为TDA计算
+ 0      #默认为0
+iroot   #每个不可约表示下计算iroot个根
+ 10
+$end
+
+

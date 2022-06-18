@@ -1,0 +1,31 @@
+$compass
+title
+ benzene_dimer TDDFT
+basis
+ def2-SVP
+geometry
+ file=opt.xyz
+end geometry
+$end
+
+$xuanyuan
+$end
+
+$scf
+RKS
+dft
+ GB3LYP
+charge
+ 0
+spin
+ 1
+$end
+
+$tddft
+itda
+ 0
+isf
+ 1
+iroot
+ 10
+$end

@@ -1,0 +1,6 @@
+! RKS B3LYP/G cc-pvdz D3 NoUseSym Opt pal8
+
+*xyzfile 0 1 benzene_dimer.xyz
+
+
+

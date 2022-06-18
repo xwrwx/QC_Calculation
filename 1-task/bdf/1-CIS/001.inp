@@ -1,0 +1,27 @@
+$compass
+title
+ benzene_dimer CIS
+basis
+ def2-SVP
+geometry
+ file=opt.xyz
+end geometry
+$end
+
+$xuanyuan
+$end
+
+$scf
+ RHF
+charge
+ 0
+spin
+ 1
+$end
+
+$tddft
+itda
+ 1
+iroot
+ 10
+$end

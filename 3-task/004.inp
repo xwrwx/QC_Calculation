@@ -1,0 +1,72 @@
+$compass
+title
+ benzene_dimer TDDFT SOC
+basis
+ def2-SVP      #基组
+geometry
+ file=opt.xyz  #分子坐标，xyz格式文件
+end geometry
+$end
+
+$xuanyuan
+scalar
+heff     #指定标量相对论哈密顿
+ 3
+hsoc     #指定自旋轨道(SO)积分的类型
+ 2
+$end
+
+$scf
+RKS      #使用Kohn-Sham自洽场
+dft
+ GB3LYP  #指定泛函
+charge   #指定电荷数
+ 0
+spin     #指定自旋多重度
+ 1
+$end
+
+#First TDDFT, singlets:S1-S10
+$tddft
+imethod  #指定基于哪种基态计算方法进行TDDFT计算，1为R-TDDFT，2为U-TDDFT
+ 1
+itda     #是否使用TDA
+ 0
+isf      #控制是否进行spin-flip的TDDFT计算
+ 0       #0为no spin-flip;1为spin flip up;-1为spin flip down
+idiag    #指定TDDFT的对角化方法
+ 1       
+istore   #指定将波函数存储于编号为istore的文件中
+ 1
+iroot    #每个n不可约表示下计算iroot个根
+ 10
+$end
+
+#Second TDDFT, triplets:T1-T10
+$tddft
+imethod
+ 1
+itda
+ 0
+isf
+ 1
+idiag
+ 1
+istore
+ 2
+iroot
+ 10
+$end
+
+$tddft
+isoc     #指定TDDFT-SOC计算方法: 1为仅闭壳层体系计算；2为一般的SOC计算；
+ 2       #3为仅打印各个标量态之间的SOC耦合矩阵元，不对角化SOC Hamiltonian
+nfiles   #读入nfiles个TDDFT先前计算的波函数，以进行SOC计算
+ 2
+ifgs     #指定TDDFT-SOC计算是否包含基态
+ 1       #0为不包含基态，1为包含基态
+imatsoc  #指定需要打印的SOC矩阵元个数
+ -1      #<0为全打印；=0为不打印任何SOC矩阵元; >0为打印imatsoc个矩阵元
+$end
+
+
